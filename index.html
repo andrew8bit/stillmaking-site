@@ -52,7 +52,8 @@
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: 0.04;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
       pointer-events: none;
       z-index: 2147483647;
     }
@@ -258,11 +259,13 @@
     })();
 
     (function () {
-      var els = document.querySelectorAll('.reveal');
+      var all = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        els.forEach(function (el) { el.classList.add('in'); });
+        all.forEach(function (el) { el.classList.add('in'); });
         return;
       }
+      var els = document.querySelectorAll('.reveal:not(.service)');
+      var fades = document.querySelectorAll('.service');
       var seen = 0;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -276,6 +279,13 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       els.forEach(function (el) { io.observe(el); });
+
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('in', entry.isIntersecting);
+        });
+      }, { threshold: 0.15 });
+      fades.forEach(function (el) { io2.observe(el); });
     })();
 
     (function () {
