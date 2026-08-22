@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Still Making — Digital Studio</title>
-  <meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, ads and SEO, branding and design, and content.">
+  <meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, apps, ads and SEO, branding and design, and content.">
   <link rel="canonical" href="https://stillmaking.studio/">
   <meta property="og:title" content="Still Making — Digital Studio">
-  <meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites, ads, design, content.">
+  <meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites, apps, ads, design, content.">
   <meta property="og:url" content="https://stillmaking.studio/">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A17'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='22' font-weight='700' fill='%23E8501A' text-anchor='middle'%3Esm_%3C/text%3E%3C/svg%3E">
@@ -208,7 +208,7 @@
         <span class="mask"><span>A digital studio for the work</span></span>
         <span class="mask"><span>your business <em>keeps putting off</em>.</span></span>
       </h1>
-      <div class="tagline reveal">websites &middot; ads &middot; design &middot; content</div>
+      <div class="tagline reveal">websites &middot; apps &middot; ads &middot; design &middot; content</div>
     </section>
 
     <section class="services">
@@ -219,16 +219,21 @@
       </div>
       <div class="service reveal">
         <div class="num">02</div>
+        <h2>app development</h2>
+        <p>web and mobile apps, scoped right and shipped fast.</p>
+      </div>
+      <div class="service reveal">
+        <div class="num">03</div>
         <h2>ads &amp; seo</h2>
         <p>campaigns and search that put you in front of people already looking.</p>
       </div>
       <div class="service reveal">
-        <div class="num">03</div>
+        <div class="num">04</div>
         <h2>branding &amp; design</h2>
         <p>logos, identity, and the visual details that make you look established.</p>
       </div>
       <div class="service reveal">
-        <div class="num">04</div>
+        <div class="num">05</div>
         <h2>content</h2>
         <p>video, social, and the steady stream of small work nobody has time for.</p>
       </div>
@@ -288,7 +293,7 @@
         entries.forEach(function (entry) {
           entry.target.classList.toggle('in', entry.isIntersecting);
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0, rootMargin: '-12% 0px -12% 0px' });
       fades.forEach(function (el) { io2.observe(el); });
     })();
 
