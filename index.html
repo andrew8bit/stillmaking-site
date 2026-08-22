@@ -296,12 +296,17 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       els.forEach(function (el) { io.observe(el); });
 
-      var io2 = new IntersectionObserver(function (entries) {
+      var ioIn = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          entry.target.classList.toggle('in', entry.isIntersecting);
+          if (entry.isIntersecting) { entry.target.classList.add('in'); }
         });
-      }, { threshold: 0, rootMargin: '-12% 0px -12% 0px' });
-      fades.forEach(function (el) { io2.observe(el); });
+      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+      var ioOut = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) { entry.target.classList.remove('in'); }
+        });
+      }, { threshold: 0 });
+      fades.forEach(function (el) { ioIn.observe(el); ioOut.observe(el); });
     })();
 
     (function () {
