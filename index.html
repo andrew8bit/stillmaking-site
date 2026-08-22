@@ -1,162 +1,267 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Still Making — Digital Studio</title>
-<meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, ads and SEO, branding and design, and content.">
-<link rel="canonical" href="https://stillmaking.studio/">
-<meta property="og:title" content="Still Making — Digital Studio">
-<meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites, ads, design, content.">
-<meta property="og:url" content="https://stillmaking.studio/">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A17'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='22' font-weight='700' fill='%23E8501A' text-anchor='middle'%3Esm_%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
-<style>
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: #F4F3EE; color: #1A1A17; font-family: 'IBM Plex Mono', 'Courier New', monospace; -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 48px 120px 60px; display: flex; flex-direction: column; min-height: 100vh; }
-@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-.cursor { display: inline-block; width: 0.55em; height: 0.16em; background: #E8501A; margin-left: 0.22em; animation: blink 1.2s step-end infinite; }
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
-.reveal.in { opacity: 1; transform: none; }
-.brand { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; display: flex; align-items: baseline; }
-.hero { margin-top: 140px; max-width: 880px; }
-.hero h1 { margin: 0; font-size: clamp(26px, 3.4vw, 42px); font-weight: 500; line-height: 1.35; letter-spacing: -0.02em; }
-.hero h1 em { font-style: normal; color: #E8501A; }
-.tagline { margin-top: 26px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E; }
-.services { margin-top: 130px; display: flex; flex-direction: column; }
-.service { display: flex; align-items: baseline; gap: 36px; padding: 32px 0; border-top: 1px solid #DCDAD0; transition: padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.service:last-child { border-bottom: 1px solid #DCDAD0; }
-.service:hover { padding-left: 18px; }
-.service .num { font-size: 14px; font-weight: 600; color: #E8501A; flex-shrink: 0; }
-.service h2 { margin: 0; font-size: 24px; font-weight: 600; width: 340px; flex-shrink: 0; }
-.service p { margin: 0; font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 15px; color: #6E6E64; line-height: 1.6; }
-.promise { margin-top: 120px; max-width: 640px; font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #44443E; }
-.contact { margin-top: 120px; background: #1A1A17; padding: 64px 72px; display: flex; flex-direction: column; gap: 16px; }
-.contact .label { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E; }
-.contact a { font-size: clamp(17px, 2.6vw, 34px); font-weight: 600; letter-spacing: -0.02em; color: #F4F3EE; text-decoration: none; transition: color 0.3s; word-break: break-all; cursor: pointer; }
-.contact a:hover { color: #E8501A; }
-.copied { font-size: 13px; color: #E8501A; opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
-.copied.show { opacity: 1; transform: none; }
-footer { margin-top: auto; padding-top: 70px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font-size: 12px; color: #8A897E; }
-@media (max-width: 760px) {
-.wrap { padding: 28px 24px 40px; }
-.brand { font-size: 15px; }
-.hero { margin-top: 80px; }
-.tagline { margin-top: 18px; font-size: 11px; letter-spacing: 0.18em; }
-.services { margin-top: 80px; }
-.service { flex-direction: column; gap: 8px; padding: 24px 0; }
-.service:hover { padding-left: 0; }
-.service .num { font-size: 12px; }
-.service h2 { font-size: 19px; width: auto; }
-.service p { font-size: 14px; }
-.promise { margin-top: 68px; font-size: 15px; }
-.contact { margin-top: 68px; padding: 36px 28px; }
-footer { padding-top: 48px; font-size: 10px; }
-}
-@media (prefers-reduced-motion: reduce) {
-html { scroll-behavior: auto; }
-.reveal { opacity: 1; transform: none; transition: none; }
-.cursor { animation: none; }
-.service { transition: none; }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Still Making — Digital Studio</title>
+  <meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, ads &amp; SEO, branding &amp; design, and content.">
+  <link rel="canonical" href="https://stillmaking.studio/">
+  <meta property="og:title" content="Still Making — Digital Studio">
+  <meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites · ads · design · content.">
+  <meta property="og:url" content="https://stillmaking.studio/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A17'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='22' font-weight='700' fill='%23E8501A' text-anchor='middle'%3Esm_%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #F4F3EE;
+      color: #1A1A17;
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    ::selection { background: #E8501A; color: #F4F3EE; }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 120px 60px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    .cursor {
+      display: inline-block;
+      width: 0.55em; height: 0.16em;
+      background: #E8501A;
+      margin-left: 0.22em;
+      animation: blink 1.2s step-end infinite;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .brand {
+      font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
+      display: flex; align-items: baseline;
+    }
+
+    .hero { margin-top: 140px; max-width: 880px; }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(26px, 3.4vw, 42px);
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: normal; color: #E8501A; }
+    .tagline {
+      margin-top: 26px;
+      font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E;
+    }
+
+    .services { margin-top: 130px; display: flex; flex-direction: column; }
+    .service {
+      display: flex; align-items: baseline; gap: 36px;
+      padding: 32px 0;
+      border-top: 1px solid #DCDAD0;
+      transition: padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .service:last-child { border-bottom: 1px solid #DCDAD0; }
+    .service:hover { padding-left: 18px; }
+    .service .num { font-size: 14px; font-weight: 600; color: #E8501A; flex-shrink: 0; }
+    .service h2 { margin: 0; font-size: 24px; font-weight: 600; width: 340px; flex-shrink: 0; }
+    .service h2::after { content: '_'; color: #E8501A; opacity: 0; transition: opacity 0.25s; }
+    .service:hover h2::after { opacity: 1; animation: blink 1.2s step-end infinite; }
+    .service p {
+      margin: 0;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+      font-size: 15px; color: #6E6E64; line-height: 1.6;
+    }
+
+    .promise {
+      margin-top: 120px; max-width: 640px;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+      font-size: 17px; line-height: 1.7; color: #44443E;
+    }
+
+    .contact {
+      margin-top: 120px;
+      background: #1A1A17;
+      padding: 64px 72px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .contact .label { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E; }
+    .label-cursor { color: #E8501A; animation: blink 1.2s step-end infinite; }
+    .contact a {
+      font-size: clamp(17px, 2.6vw, 34px);
+      font-weight: 600; letter-spacing: -0.02em;
+      color: #F4F3EE; text-decoration: none;
+      transition: color 0.3s;
+      word-break: break-all;
+      cursor: pointer;
+    }
+    .contact a:hover { color: #E8501A; }
+    .copied {
+      font-size: 13px; color: #E8501A;
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .copied.show { opacity: 1; transform: none; }
+
+    footer {
+      margin-top: auto; padding-top: 70px;
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      font-size: 12px; color: #8A897E;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { padding: 28px 24px 40px; }
+      .brand { font-size: 15px; }
+      .hero { margin-top: 80px; }
+      .tagline { margin-top: 18px; font-size: 11px; letter-spacing: 0.18em; }
+      .services { margin-top: 80px; }
+      .service { flex-direction: column; gap: 8px; padding: 24px 0; }
+      .service:hover { padding-left: 0; }
+      .service .num { font-size: 12px; }
+      .service h2 { font-size: 19px; width: auto; }
+      .service p { font-size: 14px; }
+      .promise { margin-top: 68px; font-size: 15px; }
+      .contact { margin-top: 68px; padding: 36px 28px; }
+      footer { padding-top: 48px; font-size: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .cursor { animation: none; }
+      .service { transition: none; }
+      .label-cursor { animation: none; }
+      .service:hover h2::after { animation: none; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-<div class="brand reveal"><span>still making</span><span class="cursor"></span></div>
-<section class="hero">
-<h1 class="reveal">A digital studio for the work your business <em>keeps putting off</em>.</h1>
-<div class="tagline reveal">websites &middot; ads &middot; design &middot; content</div>
-</section>
-<section class="services">
-<div class="service reveal">
-<div class="num">01</div>
-<h2>websites</h2>
-<p>see your new site before you spend a dollar. designed, written, launched.</p>
-</div>
-<div class="service reveal">
-<div class="num">02</div>
-<h2>ads &amp; seo</h2>
-<p>campaigns and search that put you in front of people already looking.</p>
-</div>
-<div class="service reveal">
-<div class="num">03</div>
-<h2>branding &amp; design</h2>
-<p>logos, identity, and the visual details that make you look established.</p>
-</div>
-<div class="service reveal">
-<div class="num">04</div>
-<h2>content</h2>
-<p>video, social, and the steady stream of small work nobody has time for.</p>
-</div>
-</section>
-<p class="promise reveal">Straight answers and a fixed quote before anything starts. And if you don't actually need what we sell, we'll tell you.</p>
-<section class="contact reveal">
-<div class="label">say hi_</div>
-<a id="email-link" href="mailto:andrew@stillmaking.studio">andrew@stillmaking.studio</a>
-<div class="copied" id="copied-note">copied to clipboard_</div>
-</section>
-<footer class="reveal">
-<div>&copy; 2026 still making</div>
-<div>made, and still making</div>
-</footer>
-</div>
-<script>
-(function () {
-var els = document.querySelectorAll('.reveal');
-if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-els.forEach(function (el) { el.classList.add('in'); });
-return;
-}
-var seen = 0;
-var io = new IntersectionObserver(function (entries) {
-entries.forEach(function (entry) {
-if (entry.isIntersecting) {
-var el = entry.target;
-el.style.transitionDelay = Math.min(seen++ * 60, 240) + 'ms';
-el.classList.add('in');
-io.unobserve(el);
-setTimeout(function () { seen = Math.max(0, seen - 1); }, 500);
-}
-});
-}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-els.forEach(function (el) { io.observe(el); });
-})();
-(function () {
-var link = document.getElementById('email-link');
-var note = document.getElementById('copied-note');
-if (!link || !note) return;
-var timer;
-link.addEventListener('click', function () {
-var addr = 'andrew@stillmaking.studio';
-function done() {
-note.classList.add('show');
-clearTimeout(timer);
-timer = setTimeout(function () { note.classList.remove('show'); }, 2200);
-}
-function fallback() {
-var ta = document.createElement('textarea');
-ta.value = addr;
-ta.style.position = 'fixed';
-ta.style.opacity = '0';
-document.body.appendChild(ta);
-ta.select();
-try { document.execCommand('copy'); done(); } catch (e) {}
-document.body.removeChild(ta);
-}
-if (navigator.clipboard && navigator.clipboard.writeText) {
-navigator.clipboard.writeText(addr).then(done, function () { fallback(); });
-} else {
-fallback();
-}
-});
-})();
-</script>
+  <div class="wrap">
+
+    <div class="brand reveal"><span id="brand-type">still making</span><span class="cursor"></span></div>
+
+    <section class="hero">
+      <h1 class="reveal">A digital studio for the work your business <em>keeps putting off</em>.</h1>
+      <div class="tagline reveal">websites &middot; ads &middot; design &middot; content</div>
+    </section>
+
+    <section class="services">
+      <div class="service reveal">
+        <div class="num">01</div>
+        <h2>websites</h2>
+        <p>see your new site before you spend a dollar. designed, written, launched.</p>
+      </div>
+      <div class="service reveal">
+        <div class="num">02</div>
+        <h2>ads &amp; seo</h2>
+        <p>campaigns and search that put you in front of people already looking.</p>
+      </div>
+      <div class="service reveal">
+        <div class="num">03</div>
+        <h2>branding &amp; design</h2>
+        <p>logos, identity, and the visual details that make you look established.</p>
+      </div>
+      <div class="service reveal">
+        <div class="num">04</div>
+        <h2>content</h2>
+        <p>video, social, and the steady stream of small work nobody has time for.</p>
+      </div>
+    </section>
+
+    <p class="promise reveal">Straight answers and a fixed quote before anything starts. And if you don't actually need what we sell, we'll tell you.</p>
+
+    <section class="contact reveal">
+      <div class="label">say hi<span class="label-cursor">_</span></div>
+      <a id="email-link" href="mailto:andrew@stillmaking.studio">andrew@stillmaking.studio</a>
+      <div class="copied" id="copied-note">copied to clipboard_</div>
+    </section>
+
+    <footer class="reveal">
+      <div>&copy; 2026 still making</div>
+      <div>made, and still making</div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('brand-type');
+      if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var full = el.textContent;
+      el.textContent = ' ';
+      var i = 0;
+      setTimeout(function step() {
+        el.textContent = full.slice(0, i) || ' ';
+        if (i < full.length) { i++; setTimeout(step, 70); }
+      }, 400);
+    })();
+
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var seen = 0;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            el.style.transitionDelay = Math.min(seen++ * 60, 240) + 'ms';
+            el.classList.add('in');
+            io.unobserve(el);
+            setTimeout(function () { seen = Math.max(0, seen - 1); }, 500);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    (function () {
+      var link = document.getElementById('email-link');
+      var note = document.getElementById('copied-note');
+      if (!link || !note) return;
+      var timer;
+      link.addEventListener('click', function () {
+        var addr = 'andrew@stillmaking.studio';
+        function done() {
+          note.classList.add('show');
+          clearTimeout(timer);
+          timer = setTimeout(function () { note.classList.remove('show'); }, 2200);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(addr).then(done, function () { fallback(); });
+        } else {
+          fallback();
+        }
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = addr;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
