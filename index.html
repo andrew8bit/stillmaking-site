@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Still Making — Digital Studio</title>
-  <meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, ads &amp; SEO, branding &amp; design, and content.">
+  <meta name="description" content="Still Making is a digital studio for the work your business keeps putting off — websites, ads and SEO, branding and design, and content.">
   <link rel="canonical" href="https://stillmaking.studio/">
   <meta property="og:title" content="Still Making — Digital Studio">
-  <meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites · ads · design · content.">
+  <meta property="og:description" content="A digital studio for the work your business keeps putting off. Websites, ads, design, content.">
   <meta property="og:url" content="https://stillmaking.studio/">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231A1A17'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='22' font-weight='700' fill='%23E8501A' text-anchor='middle'%3Esm_%3C/text%3E%3C/svg%3E">
@@ -15,17 +15,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
   <style>
+    :root {
+      --bg: #F4F3EE;
+      --ink: #1A1A17;
+      --body-text: #44443E;
+      --muted: #6E6E64;
+      --faint: #8A897E;
+      --line: #DCDAD0;
+      --panel: #1A1A17;
+      --panel-text: #F4F3EE;
+      --signal: #E8501A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161613;
+        --ink: #F1EFE7;
+        --body-text: #C6C4B8;
+        --muted: #9C9A8E;
+        --faint: #7C7B71;
+        --line: #2C2C25;
+        --panel: #0D0D0B;
+        --panel-text: #F1EFE7;
+      }
+    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: #F4F3EE;
-      color: #1A1A17;
+      background: var(--bg);
+      color: var(--ink);
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
       -webkit-font-smoothing: antialiased;
     }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 2147483647;
+    }
     a { color: inherit; }
-    ::selection { background: #E8501A; color: #F4F3EE; }
+    ::selection { background: var(--signal); color: #F4F3EE; }
     .wrap {
       max-width: 1200px;
       margin: 0 auto;
@@ -39,7 +71,7 @@
     .cursor {
       display: inline-block;
       width: 0.55em; height: 0.16em;
-      background: #E8501A;
+      background: var(--signal);
       margin-left: 0.22em;
       animation: blink 1.2s step-end infinite;
     }
@@ -64,56 +96,65 @@
       line-height: 1.35;
       letter-spacing: -0.02em;
     }
-    .hero h1 em { font-style: normal; color: #E8501A; }
+    .hero h1.reveal { opacity: 1; transform: none; transition: none; }
+    .hero h1 .mask { display: block; overflow: hidden; }
+    .hero h1 .mask > span {
+      display: inline-block;
+      transform: translateY(115%);
+      transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hero h1 .mask:nth-child(2) > span { transition-delay: 0.12s; }
+    .hero h1.in .mask > span { transform: none; }
+    .hero h1 em { font-style: normal; color: var(--signal); }
     .tagline {
       margin-top: 26px;
-      font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E;
+      font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint);
     }
 
     .services { margin-top: 130px; display: flex; flex-direction: column; }
     .service {
       display: flex; align-items: baseline; gap: 36px;
       padding: 32px 0;
-      border-top: 1px solid #DCDAD0;
+      border-top: 1px solid var(--line);
       transition: padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .service:last-child { border-bottom: 1px solid #DCDAD0; }
+    .service:last-child { border-bottom: 1px solid var(--line); }
     .service:hover { padding-left: 18px; }
-    .service .num { font-size: 14px; font-weight: 600; color: #E8501A; flex-shrink: 0; }
+    .service .num { font-size: 14px; font-weight: 600; color: var(--signal); flex-shrink: 0; }
     .service h2 { margin: 0; font-size: 24px; font-weight: 600; width: 340px; flex-shrink: 0; }
-    .service h2::after { content: '_'; color: #E8501A; opacity: 0; transition: opacity 0.25s; }
+    .service h2::after { content: '_'; color: var(--signal); opacity: 0; transition: opacity 0.25s; }
     .service:hover h2::after { opacity: 1; animation: blink 1.2s step-end infinite; }
     .service p {
       margin: 0;
       font-family: 'IBM Plex Sans', Arial, sans-serif;
-      font-size: 15px; color: #6E6E64; line-height: 1.6;
+      font-size: 15px; color: var(--muted); line-height: 1.6;
     }
 
     .promise {
       margin-top: 120px; max-width: 640px;
       font-family: 'IBM Plex Sans', Arial, sans-serif;
-      font-size: 17px; line-height: 1.7; color: #44443E;
+      font-size: 17px; line-height: 1.7; color: var(--body-text);
     }
 
     .contact {
       margin-top: 120px;
-      background: #1A1A17;
+      background: var(--panel);
       padding: 64px 72px;
       display: flex; flex-direction: column; gap: 16px;
     }
     .contact .label { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A897E; }
-    .label-cursor { color: #E8501A; animation: blink 1.2s step-end infinite; }
+    .label-cursor { color: var(--signal); animation: blink 1.2s step-end infinite; }
     .contact a {
       font-size: clamp(17px, 2.6vw, 34px);
       font-weight: 600; letter-spacing: -0.02em;
-      color: #F4F3EE; text-decoration: none;
+      color: var(--panel-text); text-decoration: none;
       transition: color 0.3s;
       word-break: break-all;
       cursor: pointer;
     }
-    .contact a:hover { color: #E8501A; }
+    .contact a:hover { color: var(--signal); }
     .copied {
-      font-size: 13px; color: #E8501A;
+      font-size: 13px; color: var(--signal);
       opacity: 0; transform: translateY(4px);
       transition: opacity 0.3s, transform 0.3s;
     }
@@ -122,7 +163,7 @@
     footer {
       margin-top: auto; padding-top: 70px;
       display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-      font-size: 12px; color: #8A897E;
+      font-size: 12px; color: var(--faint);
     }
 
     @media (max-width: 760px) {
@@ -148,6 +189,7 @@
       .service { transition: none; }
       .label-cursor { animation: none; }
       .service:hover h2::after { animation: none; }
+      .hero h1 .mask > span { transform: none; transition: none; }
     }
   </style>
 </head>
@@ -157,7 +199,10 @@
     <div class="brand reveal"><span id="brand-type">still making</span><span class="cursor"></span></div>
 
     <section class="hero">
-      <h1 class="reveal">A digital studio for the work your business <em>keeps putting off</em>.</h1>
+      <h1 class="reveal">
+        <span class="mask"><span>A digital studio for the work</span></span>
+        <span class="mask"><span>your business <em>keeps putting off</em>.</span></span>
+      </h1>
       <div class="tagline reveal">websites &middot; ads &middot; design &middot; content</div>
     </section>
 
